@@ -1,0 +1,145 @@
+.create-event-layout{
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.801);
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+}
+.delete{
+    background: red;
+}
+.first-wrap{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.view-layout{
+    width: 90%;
+    margin: auto;
+}
+
+.todo-list  li{
+ list-style: none;
+}
+.view-event-layout{
+width: 90%;
+margin: auto;
+height: 100vh;
+display: flex;
+flex-direction: column;
+gap: 10%;
+}
+.scedule-wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+.schedule-section{
+    height: 40%;
+}
+.o{
+    position: relative;
+    min-height: 100%;
+    overflow-y: scroll;
+}
+.todo-hash{
+    padding: 10px;
+    background: rgb(41, 41, 41);
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    gap: 20%;
+    align-items: center;
+}
+.j{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.e{
+    padding: 10px;
+    background: rgb(41, 41, 41);
+    max-width: 100% ;
+    
+}
+.schedule{
+    display: flex;
+    flex-direction: column;
+   gap: 10px;
+    width: 100%;
+    height: 40%;
+    border-radius: 10px;
+    background: #0e0e0e;
+padding: 0 5px ;}
+.calendar-area{
+display: flex;
+flex-direction: column;
+width: 100%;
+height: 30%;
+gap: 10%;
+}
+.read-notes{
+    height: 80vh;
+    background: #0e0e0e;
+}
+.p{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.x{
+    display: flex;
+    justify-content: space-between;
+}
+.heading{
+    text-align: center;
+}
+.schedule_wrap{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+.logo-homepage{
+    width: 20%;
+}
+.date-input{
+    width: 20%;
+}
+.cre-event-layout{
+    width: 90%;
+    margin: auto;
+}
+.schedule_wrap input{
+    width: 40%;
+}
+.wrap{
+    overflow-y: scroll;
+    height: 100%;
+}
+.y{
+    padding: 15px;
+}
+.des{
+
+width: 100%;
+height: 40%;
+padding: 5px 0 0  5px ;
+}
+.title-field{
+    text-transform: capitalize;
+    width: 50%;
+}
+.header2{
+    position: static;
+}
+
+@media (max-width:700px) {
+    .date-input{
+        width: 30%;
+    }
+}

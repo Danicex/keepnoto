@@ -39,11 +39,13 @@ gap: 10%;
     gap: 10%;
 }
 .schedule-section{
+   background: #0e0e0e;
     height: 40%;
+    border-radius: 20px;
 }
 .o{
     position: relative;
-    min-height: 100%;
+    min-height: 85%;
     overflow-y: scroll;
 }
 .todo-hash{
@@ -137,7 +139,16 @@ padding: 5px 0 0  5px ;
 .header2{
     position: static;
 }
-
+.event-section{
+    position: relative;
+    padding:2em 1em;
+    background: #0e0e0e;
+    border-radius: 20px;
+}
+#event-icon-view{
+    
+    font-size: 30px;
+}
 @media (max-width:700px) {
     .date-input{
         width: 30%;

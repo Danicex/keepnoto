@@ -8,7 +8,6 @@ class EventsController < ApplicationController
   # GET /events
   def index
     @events = @user.events.order(created_at: :desc)
-
     render json: @events
   end
 
@@ -28,6 +27,16 @@ class EventsController < ApplicationController
     end
   end
 
+   
+  def search 
+    query = params[:q]
+    if  query.present?
+      @events = Event.where('title LIKE ? OR content LIKE ?', "%#{query}%", "%#{query}%")
+    else
+      @events = Event.all
+    end
+    render json:{results: @events}
+  end
   # PATCH/PUT /events/1
   def update
     if @event.update(event_params)

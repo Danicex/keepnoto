@@ -10,5 +10,5 @@ class User < ApplicationRecord
          has_many :notes
          has_many :events
          has_many :todos
-         has_one :profile, dependent: :destroy
+         has_one :profile
       end

@@ -9,6 +9,7 @@ const AuthProvider = ({ children }) => {
     const [resorceOwner, setResourceOwner]  =  useState(localStorage.getItem('resource_owner') || '');
     const [userRefreshToken, setUserRefreshToken] =  useState(null)
     const [client, setClient] = useState(null);
+
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('user'));
     const navigate = useNavigate();
     
@@ -33,14 +34,15 @@ const AuthProvider = ({ children }) => {
                     password: password,
             });
             const userData = response.data;
-            const userId = userData.resource_owner.id
-            console.log(response.data.resource_owner.id)
-            const userDetail = response.data.resource_owner
+           
             setClient(userData);
-            localStorage.setItem('user_id', userId)
-            setUserId(userId)
+
+            localStorage.setItem('user_id',userData.resource_owner.id)
+            setUserId(userData.resource_owner.id)
+            console.log(userData.resource_owner.id)
+
             setUserRefreshToken(userData.refresh_token)
-            setResourceOwner(userDetail)
+            setResourceOwner(userData.resource_owner)
             
             localStorage.setItem('user', JSON.stringify(userData));
             setIsAuthenticated(true);
@@ -64,8 +66,11 @@ const AuthProvider = ({ children }) => {
              );
             const userData = response.data;
             setClient(userData);
-            setUserId(userData.user_id)
+            setUserId(userData.resource_owner.id)
+            console.log(userData.resource_owner.id)
+            localStorage.setItem('user_id',  userData.resource_owner.id)
             setResourceOwner(response.data.resource_owner)
+            
             localStorage.setItem('user', JSON.stringify(userData));
             setIsAuthenticated(true);
            if (response.status = 422){

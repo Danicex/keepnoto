@@ -9,7 +9,8 @@
 }
 
 .profile {
-    padding: 20px;
+    width: 40px;
+    height: 40px;
     background: #000000;
     border-radius: 50%;
     border: 2px #7715f8 solid;
@@ -301,7 +302,7 @@
     justify-content: space-between;
 }
 
-.j {
+.jp {
     width: 50%;
     display: flex;
     justify-content: space-between;

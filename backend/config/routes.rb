@@ -13,7 +13,7 @@ resources :schedules
     resources :events do
       resources :schedules
     end
-    resources :profiles
+    resource :profile
   end
 
 

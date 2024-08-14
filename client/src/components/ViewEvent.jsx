@@ -4,6 +4,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthContext';
 import logo from '../assets/keepnotodark.png';
 import './EventPage.css';
+import { MdEvent } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 
 export default function ViewEvent() {
@@ -19,8 +20,8 @@ export default function ViewEvent() {
       .then(response => {
         setNoteData([response.data])
         axios.get(`http://127.0.0.1:3000/users/${userId}/events/${response.data.id}/schedules`)
-        .then(res => setScheduleData(res.data))
-        .catch(err => console.log(err,'an error occured'))
+          .then(res => setScheduleData(res.data))
+          .catch(err => console.log(err, 'an error occured'))
       })
       .catch(err => console.log('Error:', err));
   }, [id, type, userId]);
@@ -42,46 +43,55 @@ export default function ViewEvent() {
         <div key={item.id}  >
           <div className="first-wrap">
 
-        
-           <div className="header2">
+
+            <div className="header2">
               <Link to="/homepage" className="createpage-header-link">
                 <img src={logo} alt="Home" className="home-link" />
               </Link>
             </div>
-          <button className="delete" onClick={() => handleDelete(item.id)}>Delete</button>
-          <button className="editnotes">
+            <button className="delete" onClick={() => handleDelete(item.id)}>Delete</button>
+            <button className="editnotes">
 
-          <Link to="/edit" onClick={() => handleEdit(item.id)}>Edit
-          </Link>
-          </button>
+              <Link to="/edit" onClick={() => handleEdit(item.id)}>Edit
+              </Link>
+            </button>
           </div>
           <br />
-        <div className="j" >
-          <h1>{item.title}</h1>   <h4 style={{background:'rgb(41, 41, 41)', padding:'10px',  borderRadius:'5px 5px 0 0'}}>{item.date}</h4>
+          <div className="event-section">
+          <MdEvent id="event-icon-view" />
+          <br />
+            <div className="j" >
+
+              <h1>{item.title}</h1>   <h4 style={{ background: 'rgb(41, 41, 41)', padding: '10px', borderRadius: '5px 5px 0 0' }}>{item.date}</h4>
+            </div>
+
+            <div className="line" style={{ background: item.theme }}></div>
+
+            <p className='e'>
+              {item.description}
+            </p>
           </div>
 
-          <div className="line" style={{ background: item.theme }}></div>
-        
-          <p className='e'>
-            {item.description}
-          </p>
+
         </div>
       ))}
+
       <div className="schedule-section">
-        <h2 style={{textAlign:'center'}}>Schedules</h2>
+        <h2 style={{ textAlign: 'center', color:'#acacac' }}>Schedules</h2>
         <div className="o">
-        {scheduleData.map((data)=>(
-          <div className="scedule-wrap" key={data.id}>
-            <ul>
-              <div className='todo-hash' >
-                <h5>{data.name}</h5>
-                <h5>{data.time}</h5>
-              </div>
-            </ul>
-          </div>
-        ))}
+          {scheduleData.map((data) => (
+            <div className="scedule-wrap" key={data.id}>
+              <ul>
+                <div className='todo-hash' >
+                  <h5>{data.name}</h5>
+                  <h5>{data.time}</h5>
+                </div>
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
+
     </div>
   );
 }

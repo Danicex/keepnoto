@@ -17,6 +17,16 @@ class NotesController < ApplicationController
     render json: @note
   end
 
+  def search 
+    query = params[:q]
+    if  query.present?
+      @notes = Note.where('title LIKE ? OR content LIKE ?', "%#{query}%", "%#{query}%")
+    else
+      @note = Note.all
+    end
+    render json:{results: @notes}
+  end
+  
   # POST /notes
   def create
     @note = @user.notes.build(note_params)

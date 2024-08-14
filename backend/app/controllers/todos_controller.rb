@@ -24,6 +24,15 @@ class TodosController < ApplicationController
     end
   end
 
+  def search 
+    query = params[:q]
+    if  query.present?
+      @todos = Todo.where('title LIKE ? OR content LIKE ?', "%#{query}%", "%#{query}%")
+    else
+      @todos = Todo.all
+    end
+    render json:{results: @todos}
+  end
   # PATCH/PUT /users/:user_id/todos/:id
   def update
     if @todo.update(todo_params)

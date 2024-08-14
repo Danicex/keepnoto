@@ -18,7 +18,7 @@ export default function Homepage() {
   const [openNav, setOpenNav] = useState(false);
   const [openAdd, setOpenAdd] = useState(false);
   const [greeting, setGreeting] = useState('');
-
+const [profileImg, setProfileImg] =useState([])
   const { userId, resourceOwner } = useContext(AuthContext);
   const [query,  setQuery]  = useState('')
   const [result,  setResult]  = useState([])
@@ -55,7 +55,7 @@ export default function Homepage() {
 
   useEffect(() => {
     
-
+     
     const updateGreeting = () => {
       const currentHour = new Date().getHours();
       if (currentHour < 12) {
@@ -67,6 +67,13 @@ export default function Homepage() {
       }
     };
 
+    axios.get(`http://localhost:3000/users/${userId}/profile`).then(
+      ressponse => {
+        setProfileImg(ressponse.data)
+      }
+    ).catch(
+      err=>{console.log(err)}
+    )
     updateGreeting();
   }, [userId]);
 
@@ -81,6 +88,7 @@ export default function Homepage() {
     setOpenNav(null)
   }
 
+  
  
 
   return (
@@ -103,7 +111,7 @@ export default function Homepage() {
           onChange={(e)=>setQuery(e.target.value)}/>
           <button className='search-btn'onClick={handlsearch}>Search</button>
         </div>
-        <div className="profile"></div>
+        <img className="profile" src={profileImg.image_url} alt='profile' />
       </div>
 
       <div className="mid">
@@ -114,16 +122,10 @@ export default function Homepage() {
 
         {loadingS ? (
   <div>
-    {result.map((item) => (
-      <div key={item.id} className='card' onClick={() => handleItemClick(item.id, item.type)}>
-        <div className="card-section1">
-          <h1>{item.title}</h1>
-        </div>
-        <div className="line" style={{ background: item.theme }}></div>
-        <div className="card-section2">
-          <p>{new Date(item.created_at).toLocaleString()}</p>
-        </div>
-      </div>
+    {result.map((data)=>(
+      <>
+      <h2>{data.title}</h2>
+      </>
     ))}
   </div>
 ) : (

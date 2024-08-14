@@ -93,7 +93,7 @@ export default function CreateTodo() {
           ))}
         </div>
       </div>
-
+<br />
       <div className="todo-section">
         <div className="first">
           <input
@@ -106,19 +106,19 @@ export default function CreateTodo() {
           />
           <button onClick={addTask} ><MdAdd style={{fontSize: '2vw'}} /></button>
         </div>
-
+          <br />
         <div className="content-area" style={{ backgroundColor: selectedColour, margin: '10px 0' }} />
 
         <div className='todo'>
           {tasks.map((task, index) => (
             <div className="todo-wrap" key={task.id}>
-              <div className="j">
+              <div className="jp">
                 <input
                   type="text"
                   placeholder='task'
                   value={task.value}
                   onChange={(e) => handleInputChange(task.id, e)}
-                  style={{width:'50%'}}
+                  style={{width:'90%'}}
                 />
                 <input
                   type="checkbox"

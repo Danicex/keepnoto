@@ -22,11 +22,11 @@ export default function Profile() {
     const handleFileUpload = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('profile[image]', picture); // Corrected key name for the form data
+        formData.append('profile[image]', picture); 
 
         axios.put(`http://localhost:3000/users/${userId}/profile`, formData, {
             headers: {
-                'Content-Type': 'multipart/form-data', // Set the correct content type
+                'Content-Type': 'multipart/form-data', 
                 Authorization: `Bearer ${userRefreshToken}`,
             },
         })

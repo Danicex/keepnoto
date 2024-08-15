@@ -5,16 +5,24 @@ import { useNavigate } from "react-router-dom";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+    const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+
     const [userId, setUserId]  =  useState(localStorage.getItem('user_id') || '');
-    const [resorceOwner, setResourceOwner]  =  useState(localStorage.getItem('resource_owner') || '');
+    const [resorceOwner, setResourceOwner]  =  useState(localStorage.getItem('user_email') || '');
     const [userRefreshToken, setUserRefreshToken] =  useState(null)
     const [client, setClient] = useState(null);
 
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('user'));
     const navigate = useNavigate();
     
+    useEffect(() => {
+        localStorage.setItem('theme', theme);
+        document.body.className = theme; // Apply theme to the body
+    }, [theme]);
 
     useEffect(() => {
+        
+
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
             const prasedUserData = JSON.parse(storedUser)
@@ -42,7 +50,9 @@ const AuthProvider = ({ children }) => {
             console.log(userData.resource_owner.id)
 
             setUserRefreshToken(userData.refresh_token)
-            setResourceOwner(userData.resource_owner)
+            setResourceOwner(userData.resource_owner.email)
+            localStorage.setItem('user_email', userData.resource_owner.email)
+            console.log(userData.resource_owner.email)
             
             localStorage.setItem('user', JSON.stringify(userData));
             setIsAuthenticated(true);
@@ -69,7 +79,9 @@ const AuthProvider = ({ children }) => {
             setUserId(userData.resource_owner.id)
             console.log(userData.resource_owner.id)
             localStorage.setItem('user_id',  userData.resource_owner.id)
-            setResourceOwner(response.data.resource_owner)
+
+            localStorage.setItem('user_email', userData.resource_owner.email)
+            setResourceOwner(response.data.resource_owner.email)
             
             localStorage.setItem('user', JSON.stringify(userData));
             setIsAuthenticated(true);
@@ -88,8 +100,13 @@ const AuthProvider = ({ children }) => {
         navigate('/')
     };
  
+    const changeTheme = (dark)=>{
+        localStorage.setItem('theme', dark)
+        setTheme(dark)
+        console.log('theme has been changed')
+    }
     return (
-        <AuthContext.Provider value={{ isAuthenticated, client, login, signup, logout, userId, userRefreshToken, resorceOwner}}>
+        <AuthContext.Provider value={{ isAuthenticated, client, login, signup, logout, userId, userRefreshToken, changeTheme, theme, setTheme, resorceOwner}}>
             {children}
         </AuthContext.Provider>
     );

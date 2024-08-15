@@ -18,12 +18,17 @@ import ViewNote from './components/ViewNote';
 import ViewTodo from './components/ViewTodo';
 import ViewEvent from './components/ViewEvent';
 import Profile from './components/Profile';
+import { useContext } from 'react';
 
 
 
 
 function App() {
+  
+  
   return (
+  
+    
     <AuthProvider>
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -48,6 +53,7 @@ function App() {
 
        </Routes>
     </AuthProvider>
+
   )
 }
 

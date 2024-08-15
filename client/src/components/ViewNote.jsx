@@ -5,7 +5,7 @@ import { AuthContext } from '../Auth/AuthContext';
 import ReactQuill from 'react-quill';
 import './EventPage.css';
 import { useNavigate } from 'react-router-dom';
-import logo from '../assets/keepnotodark.png';
+import logo from '../assets/b700df99-e5ea-43e3-b0c8-f9edba8e0edc.png';
 
 
 export default function ViewNote() {
@@ -33,21 +33,24 @@ export default function ViewNote() {
   };
 
   return (
-    <div>
+    <div className='view-note-layout'>
       {noteData.map((item) => (
         <div key={item.id}>
           <div className="first-wrap">
-            
-          <div className="header2">
+
+            <div className="header2">
               <Link to="/homepage" className="createpage-header-link">
                 <img src={logo} alt="Home" className="home-link" />
               </Link>
             </div>
-            <button className="delete" onClick={() => handleDelete(item.id)}>Delete</button>
+            <div className="con">
+              <button className="delete" onClick={() => handleDelete(item.id)}>Delete</button>
 
-            <Link to="/edit" onClick={() => handleEdit(item.id)}>
-              <button className="editnotes">Edit</button>
-            </Link>
+              <Link to="/edit" onClick={() => handleEdit(item.id)}>
+                <button className="editnotes">Edit</button>
+              </Link>
+            </div>
+
           </div>
 
 

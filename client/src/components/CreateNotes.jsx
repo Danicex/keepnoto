@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../assets/keepnotodark.png';
+import logo from '../assets/b700df99-e5ea-43e3-b0c8-f9edba8e0edc.png';
 import axios from 'axios';
 import { AuthContext } from '../Auth/AuthContext';
 
@@ -62,7 +62,9 @@ export default function CreateNotes() {
       </div>
 
       <div className="second1">
+      <h4>Select a theme:</h4>
         <div className="select-colours">
+          
           {colours.map((color, index) => (
             <div
               key={index}
@@ -87,7 +89,7 @@ export default function CreateNotes() {
         </div>
       </div>
 
-      <div className="content-area" style={{ backgroundColor: selectedColour, margin: '10px 0' }} />
+      <div className="content-area" style={{ backgroundColor: selectedColour, margin: '10px 0', }} />
 
       <ReactQuill value={noteContent} onChange={getTextValue} className='third1' />
 

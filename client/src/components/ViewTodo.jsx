@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocation, Link } from 'react-router-dom';
-import logo from '../assets/keepnotodark.png';
+import logo from '../assets/b700df99-e5ea-43e3-b0c8-f9edba8e0edc.png';
 import { AuthContext } from '../Auth/AuthContext';
 import './All.css'
 import './EventPage.css';
@@ -39,7 +39,7 @@ export default function ViewTodo() {
   };
 
   return (
-    <div>
+    <div className='view-todolist-layout'>
       {noteData.map((item) => (
         <div key={item.id}>
           <div className="first-wrap">
@@ -48,12 +48,15 @@ export default function ViewTodo() {
                 <img src={logo} alt="Home" className="home-link" />
               </Link>
             </div>
+            <div className="con">
             <button className="delete" onClick={handleDelete}>Delete</button>
             <button className="editnotes">
               <Link to="/edit" onClick={() => handleEdit(item.id)}>
                 Edit
               </Link>
             </button>
+
+            </div>
           </div>
           <div className="view-layout">
             <br />

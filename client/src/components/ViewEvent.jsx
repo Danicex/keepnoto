@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocation, Link } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthContext';
-import logo from '../assets/keepnotodark.png';
+import logo from '../assets/b700df99-e5ea-43e3-b0c8-f9edba8e0edc.png';
 import './EventPage.css';
 import { MdEvent } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
@@ -49,20 +49,25 @@ export default function ViewEvent() {
                 <img src={logo} alt="Home" className="home-link" />
               </Link>
             </div>
+            <div className="con">
             <button className="delete" onClick={() => handleDelete(item.id)}>Delete</button>
             <button className="editnotes">
 
               <Link to="/edit" onClick={() => handleEdit(item.id)}>Edit
               </Link>
             </button>
+
+            </div>
           </div>
           <br />
+          
           <div className="event-section">
           <MdEvent id="event-icon-view" />
           <br />
             <div className="j" >
 
-              <h1>{item.title}</h1>   <h4 style={{ background: 'rgb(41, 41, 41)', padding: '10px', borderRadius: '5px 5px 0 0' }}>{item.date}</h4>
+              <h1>{item.title}</h1>   
+              <h4 style={{ background: item.theme, padding: '10px', borderRadius: '5px 5px 0 0' }}>{item.date}</h4>
             </div>
 
             <div className="line" style={{ background: item.theme }}></div>
@@ -77,7 +82,7 @@ export default function ViewEvent() {
       ))}
 
       <div className="schedule-section">
-        <h2 style={{ textAlign: 'center', color:'#acacac' }}>Schedules</h2>
+        <h2 style={{ textAlign: 'center' }}>Schedules</h2>
         <div className="o">
           {scheduleData.map((data) => (
             <div className="scedule-wrap" key={data.id}>

@@ -1,7 +1,7 @@
 import React, { useState, useContext} from 'react';
 import axios from 'axios';
 import './EventPage.css';
-import logo from '../assets/keepnotodark.png';
+import logo from '../assets/b700df99-e5ea-43e3-b0c8-f9edba8e0edc.png';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -112,7 +112,7 @@ export default function CreateEvent() {
       </div>
       <div className="create-event-layout">
         <div className="second1">
-          <h5>Select a Theme:</h5>
+          <h4>Select a Theme:</h4>
           <div className="select-colours">
             {colours.map((color, index) => (
               <div
@@ -149,7 +149,7 @@ export default function CreateEvent() {
             placeholder="Enter description..."
           />
         </div>
-        <div className="content-area" style={{ backgroundColor: selectedColour, margin: '10px 0' }} />
+        <div className="content-area" style={{ backgroundColor: selectedColour}} />
 
         <div className="schedule">
           <h4 className="heading">Schedules</h4>

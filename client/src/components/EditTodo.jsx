@@ -2,7 +2,7 @@ import React,{useContext} from 'react'
 import { useLocation } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthContext';
 import { Link } from 'react-router-dom';
-import logo from '../assets/keepnotodark.png';
+import logo from '../assets/b700df99-e5ea-43e3-b0c8-f9edba8e0edc.png';
 import './All.css';
 import axios from 'axios';
 

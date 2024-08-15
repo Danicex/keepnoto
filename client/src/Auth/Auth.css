@@ -3,19 +3,39 @@
 }
 
 .auth-container {
-  margin:10% auto;
-  height: 40%;
-  background: black;
+  margin: 13% auto;
+  background: #64646462;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 20px;
   padding: 20px;
   border-radius: 10px;
 }
+#logout-btn-x{
+  background: red;
+}
+#logout-btn-x:hover{
+  background-color: rgb(201, 7, 7);
+}
+.logout{
+  width: 50%;
+  margin: 10% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: #64646462;
+  padding: 10px;
+  border-radius: 10px;
+}
 .auth-container input{
+ color: black;
   width: 98%;
-  padding: 5px 0 5px 5px;
+  font-weight: bold;
+  padding: 9px 5px;
 }
 .l{
   color: #7715f8;

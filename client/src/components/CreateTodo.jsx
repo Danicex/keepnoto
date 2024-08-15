@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Auth/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../assets/keepnotodark.png';
+import logo from '../assets/b700df99-e5ea-43e3-b0c8-f9edba8e0edc.png';
 import { MdAdd } from "react-icons/md";
 import './All.css';
 
@@ -81,7 +81,7 @@ export default function CreateTodo() {
         </Link>
       </div>
       <div className="second1">
-        <h5>Select a Theme:</h5>
+        <h4>Select a Theme:</h4>
         <div className="select-colours">
           {colours.map((color, index) => (
             <div
@@ -99,7 +99,7 @@ export default function CreateTodo() {
           <input
             className='todo-title'
             type="text"
-            placeholder='Title'
+            placeholder='Untitled file'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             style={{width:'50%'}}
